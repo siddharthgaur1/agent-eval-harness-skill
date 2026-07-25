@@ -11,6 +11,10 @@ signal you can run on every change — with one rule throughout: **never fabrica
 a result.** A check verifiably passes or it fails; subjective quality is graded
 by an explicit judge, never a silent guess.
 
+Want the same ideas as a standalone app with a dashboard, regression baselines,
+and a hosted demo instead of a Claude Code skill? See
+[agent-eval-harness](https://github.com/siddharthgaur1/agent-eval-harness).
+
 ## What's a skill?
 
 A skill is a folder with a `SKILL.md` that teaches Claude Code a repeatable
