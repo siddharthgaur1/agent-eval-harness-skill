@@ -30,6 +30,7 @@ from __future__ import annotations
 import argparse
 import importlib
 import json
+import sys
 import time
 import traceback
 from pathlib import Path
@@ -117,7 +118,11 @@ def main() -> None:
     judge_fn = load_callable(args.judge) if args.judge else None
 
     results = evaluate(eval_set, agent_fn, judge_fn=judge_fn, repeats=args.repeats)
-    Path(args.out).write_text(json.dumps(results, indent=2))
+    Path(args.out).write_text(json.dumps(results, indent=2), encoding="utf-8")
+
+    # Windows consoles default to a non-UTF-8 codec that can't print the marks below.
+    if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+        sys.stdout.reconfigure(errors="replace")
 
     s = results["summary"]
     print(f"\n{'PASS' if s['passed'] == s['total'] else 'FAIL'}  "

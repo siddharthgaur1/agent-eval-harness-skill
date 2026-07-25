@@ -98,7 +98,7 @@ def main() -> None:
     p.add_argument("--out", default="report.html")
     args = p.parse_args()
     results = json.loads(Path(args.results).read_text())
-    Path(args.out).write_text(render(results))
+    Path(args.out).write_text(render(results), encoding="utf-8")
     print(f"Wrote {args.out}")
 
 

@@ -44,6 +44,11 @@ PASS  3/3 cases  (100%)
   ✓ passes the user query into the search tool 100%
 ```
 
+`report.html` is a self-contained page — every assertion, its detail, and the
+input/output that produced it, expandable per case:
+
+![Example report.html generated from examples/example_eval_set.json](assets/screenshots/report-demo.png)
+
 Point `--agent` at your own `module:function`. The only contract is the return
 shape:
 
@@ -81,7 +86,8 @@ agent-eval-harness/
 │   ├── grader-design.md         # assertion catalogue + LLM-judge design
 │   └── trajectory-eval.md       # trajectory extraction per framework
 ├── assets/
-│   └── eval_set.schema.json     # eval-set JSON schema
+│   ├── eval_set.schema.json     # eval-set JSON schema
+│   └── screenshots/             # report.html example, for the README
 └── examples/
     ├── echo_agent.py            # reference agent entrypoint
     └── example_eval_set.json    # runnable example eval set
